@@ -1,0 +1,16 @@
+{
+    "extends": [
+      "airbnb-base",
+      "@typescript-eslint/eslint-config-airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  }
+  
