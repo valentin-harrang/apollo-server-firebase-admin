@@ -1,0 +1,41 @@
+name: "Deploy Release"
+
+on:
+  pull_request:
+    branches: ['master']
+  push:
+    branches: ['master']
+
+jobs:
+  # Construire l'application et la publier sur le registre Docker
+  build-push:
+    name: Build app and push to Docker registry
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: "0.0.1"
+
+    steps:
+      # Récupérer le code du dépôt
+      - uses: actions/checkout@v3
+
+      # Se connecter à Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      # Extraire les métadonnées (tags, étiquettes) pour Docker
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: ${{ secrets.DOCKER_REPOSITORY }}
+
+      # Construire une image Docker à partir du code et du fichier Dockerfile du dépôt
+      - name: 'Build docker image'
+        run: 'docker build . -f ./Dockerfile.prod -t ${{ secrets.DOCKER_REPOSITORY }}:latest'
+
+      # Publier l'image Docker sur le registre Docker
+      - name: 'Push docker image'
+        run: 'docker push ${{ secrets.DOCKER_REPOSITORY }}:latest'
