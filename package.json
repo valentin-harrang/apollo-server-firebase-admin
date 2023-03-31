@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/server.js"
   },
   "dependencies": {
     "@apollo/server": "^4.3.0",
@@ -13,8 +14,11 @@
     "graphql": "^16.6.0"
   },
   "devDependencies": {
+    "@types/node": "^18.15.11",
     "eslint": "^8.31.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.26.0",
+    "serverless-plugin-typescript": "^2.1.4",
+    "typescript": "^5.0.3"
   }
 }
