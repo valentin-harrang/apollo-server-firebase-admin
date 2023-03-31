@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node server.js"
   },
   "dependencies": {
     "@apollo/server": "^4.3.0",
+    "@as-integrations/aws-lambda": "^2.0.1",
     "dotenv": "^16.0.3",
     "firebase-admin": "^11.5.0",
     "graphql": "^16.6.0"

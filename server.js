@@ -1,5 +1,5 @@
 import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
+import { startServerAndCreateLambdaHandler, handlers } from '@as-integrations/aws-lambda';
 import admin from 'firebase-admin';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -83,6 +83,8 @@ const resolvers = {
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
-const { url } = await startStandaloneServer(server);
-
-console.log(`🚀 Server ready at ${url}`);
+export const graphqlHandler = startServerAndCreateLambdaHandler(
+  server,
+  // We will be using the Proxy V2 handler
+  handlers.createAPIGatewayProxyEventV2RequestHandler(),
+);
