@@ -2,9 +2,9 @@ name: "Deploy Release"
 
 on:
   pull_request:
-    branches: ['master']
+    branches: ['main']
   push:
-    branches: ['master']
+    branches: ['main']
 
 jobs:
   # Construire l'application et la publier sur le registre Docker
