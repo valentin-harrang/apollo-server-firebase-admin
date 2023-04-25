@@ -162,7 +162,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/apollo-server-firebase-admin/dev/1680284999704-2023-03-31T17:49:59.704Z/apollo-server-firebase-admin.zip"
+          "S3Key": "serverless/apollo-server-firebase-admin/dev/1681919536299-2023-04-19T15:52:16.299Z/apollo-server-firebase-admin.zip"
         },
         "Handler": "src/server.graphqlHandler",
         "Runtime": "nodejs18.x",
@@ -180,14 +180,14 @@
         "GraphqlLogGroup"
       ]
     },
-    "GraphqlLambdaVersionoT8XcaGNwDakfehgBLyW3TgWaZavJTLCWn5zyke7w": {
+    "GraphqlLambdaVersionxGDTMvPQVHHWU3rQYISx2zvlcOWwXfOLpMzcrsIW8w": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GraphqlLambdaFunction"
         },
-        "CodeSha256": "wU2Lu5OEwUy7wtxU6xfgSBtVaUzmVq+DgMLdkHBuItc="
+        "CodeSha256": "msyA/96ZCm3L/82Fvu3OCV8xBV6T7RLV60pMRMzzmWI="
       }
     },
     "HttpApi": {
@@ -338,7 +338,7 @@
     "GraphqlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GraphqlLambdaVersionoT8XcaGNwDakfehgBLyW3TgWaZavJTLCWn5zyke7w"
+        "Ref": "GraphqlLambdaVersionxGDTMvPQVHHWU3rQYISx2zvlcOWwXfOLpMzcrsIW8w"
       },
       "Export": {
         "Name": "sls-apollo-server-firebase-admin-dev-GraphqlLambdaFunctionQualifiedArn"
