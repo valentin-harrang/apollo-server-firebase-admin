@@ -177,7 +177,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/apollo-server-firebase-admin/dev/1681919536299-2023-04-19T15:52:16.299Z/apollo-server-firebase-admin.zip"
+                "S3Key": "serverless/apollo-server-firebase-admin/dev/1691956119002-2023-08-13T19:48:39.002Z/apollo-server-firebase-admin.zip"
               },
               "Handler": "src/server.graphqlHandler",
               "Runtime": "nodejs18.x",
@@ -195,14 +195,14 @@
               "GraphqlLogGroup"
             ]
           },
-          "GraphqlLambdaVersionxGDTMvPQVHHWU3rQYISx2zvlcOWwXfOLpMzcrsIW8w": {
+          "GraphqlLambdaVersiontUOYaD3bdPFKN3GHPPs2fOJi3ubZ82TDFHupn1dOYo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GraphqlLambdaFunction"
               },
-              "CodeSha256": "msyA/96ZCm3L/82Fvu3OCV8xBV6T7RLV60pMRMzzmWI="
+              "CodeSha256": "iW6vTdk53IVX16CwF30wzMH6B0a+Jzokbhy9U6O0WKY="
             }
           },
           "HttpApi": {
@@ -350,7 +350,7 @@
           "GraphqlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GraphqlLambdaVersionxGDTMvPQVHHWU3rQYISx2zvlcOWwXfOLpMzcrsIW8w"
+              "Ref": "GraphqlLambdaVersiontUOYaD3bdPFKN3GHPPs2fOJi3ubZ82TDFHupn1dOYo"
             },
             "Export": {
               "Name": "sls-apollo-server-firebase-admin-dev-GraphqlLambdaFunctionQualifiedArn"
@@ -513,7 +513,7 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GraphqlLambdaVersionxGDTMvPQVHHWU3rQYISx2zvlcOWwXfOLpMzcrsIW8w"
+        "versionLogicalId": "GraphqlLambdaVersiontUOYaD3bdPFKN3GHPPs2fOJi3ubZ82TDFHupn1dOYo"
       }
     },
     "configValidationMode": "warn",
@@ -532,10 +532,10 @@
     },
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/home/valentin/workspace/training/apollo-servers/apollo-server-firebase-admin/.build/.serverless/apollo-server-firebase-admin.zip"
+    "artifact": "/Users/valentinharrang/workspace/training/NightSpot/custom-servers/apollo-server-firebase-admin/.build/.serverless/apollo-server-firebase-admin.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/apollo-server-firebase-admin/dev/1681919536299-2023-04-19T15:52:16.299Z",
+    "artifactDirectoryName": "serverless/apollo-server-firebase-admin/dev/1691956119002-2023-08-13T19:48:39.002Z",
     "artifact": "apollo-server-firebase-admin.zip"
   }
 }
