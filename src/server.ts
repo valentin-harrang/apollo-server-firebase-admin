@@ -15,7 +15,7 @@ admin.initializeApp({
 });
 
 const typeDefs = `#graphql
-  type User {
+  type FirebaseUser {
     uid: ID!
     email: String
     phoneNumber: String
@@ -23,7 +23,7 @@ const typeDefs = `#graphql
     photoURL: String
   }
 
-  input CreateUserInput {
+  input CreateFirebaseUserInput {
     email: String
     phoneNumber: String
     password: String!
@@ -31,7 +31,7 @@ const typeDefs = `#graphql
     photoURL: String
   }
 
-  input UpdateUserInput {
+  input UpdateFirebaseUserInput {
     email: String
     phoneNumber: String
     password: String
@@ -41,20 +41,20 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    createUser(input: CreateUserInput!): User!
-    updateUser(id: ID!, input: UpdateUserInput!): User!
-    deleteUser(id: ID!): User!
+    createFirebaseUser(input: CreateFirebaseUserInput!): FirebaseUser!
+    updateFirebaseUser(id: ID!, input: UpdateFirebaseUserInput!): FirebaseUser!
+    deleteFirebaseUser(id: ID!): FirebaseUser!
   }
 
   type Query {
     hello: String
-    getUser(id: ID!): User!
+    getFirebaseUser(id: ID!): FirebaseUser!
   }
 `;
 
 const resolvers = {
   Mutation: {
-    async createUser(_, { input }) {
+    async createFirebaseUser(_, { input }) {
       const { email, phoneNumber, password, displayName, photoURL } = input;
 
       try {
@@ -78,15 +78,15 @@ const resolvers = {
         throw new Error(error.message);
       }
     },
-    updateUser(_, { id, input }) {
+    updateFirebaseUser(_, { id, input }) {
       return admin.auth().updateUser(id, input);
     },
-    deleteUser(_, { id }) {
+    deleteFirebaseUser(_, { id }) {
       return admin.auth().deleteUser(id);
     },
   },
   Query: {
-    getUser(_, { id }) {
+    getFirebaseUser(_, { id }) {
       return admin.auth().getUser(id);
     },
   },
